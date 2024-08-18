@@ -8,11 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jua: ['Jua', 'sans-serif'],
+      },
       colors: {
         primary: {
           bege: "#F8B195",
           hotPint: "#F67280",
-          darkPint: "#C06C84",
+          darkPink: "#C06C84",
           darkPurple: "#6C5B7B",
           darkBlue: "#355C7D",
         }
