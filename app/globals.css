@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'Jua';
+  src: url('/fonts/Jua-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

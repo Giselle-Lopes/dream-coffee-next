@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jua: ['Jua', 'sans-serif'],
+      },
+      colors: {
+        primary: {
+          bege: "#F8B195",
+          hotPint: "#F67280",
+          darkPink: "#C06C84",
+          darkPurple: "#6C5B7B",
+          darkBlue: "#355C7D",
+        }
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
