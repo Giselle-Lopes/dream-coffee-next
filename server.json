@@ -1,0 +1,54 @@
+{
+    "coffeeShops": [
+        { 
+            "id": 1,
+            "name": "cafe-1",
+            "image": "/images/assets/cafeterias/cafe-1.jpg" 
+        },
+        { 
+            "id": 2,
+            "name": "cafe-2",
+            "image": "/images/assets/cafeterias/cafe-2.jpg" 
+        },
+        { 
+            "id": 3,
+            "name": "cafe-3",
+            "image": "/images/assets/cafeterias/cafe-3.jpg" 
+        },
+        { 
+            "id": 4,
+            "name": "cafe-4",
+            "image": "/images/assets/cafeterias/cafe-4.jpg" 
+        },
+        { 
+            "id": 5,
+            "name": "cafe-5",
+            "image": "/images/assets/cafeterias/cafe-5.jpg" 
+        },
+        { 
+            "id": 6,
+            "name": "cafe-6",
+            "image": "/images/assets/cafeterias/cafe-6.jpg" 
+        },
+        { 
+            "id": 7,
+            "name": "cafe-7",
+            "image": "/images/assets/cafeterias/cafe-7.jpg" 
+        },
+        { 
+            "id": 8,
+            "name": "cafe-8",
+            "image": "/images/assets/cafeterias/cafe-8.jpg" 
+        },
+        { 
+            "id": 9,
+            "name": "cafe-9",
+            "image": "/images/assets/cafeterias/cafe-9.jpg" 
+        },
+        { 
+            "id": 10,
+            "name": "cafe-10",
+            "image": "/images/assets/cafeterias/cafe-10.jpg" 
+        }
+    ]
+}
