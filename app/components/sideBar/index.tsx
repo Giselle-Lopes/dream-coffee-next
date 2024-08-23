@@ -21,7 +21,7 @@ export function SideBar({ openState, onClose }: SideBarType) {
                 alt={"Dream coffe logo"}
             />
         </div>
-        <div className="flex absolute right-5 lg:w-6 lg:h-6 w-4 h-4 mt-5 cursor-pointer" onClick={onClose}>
+        <div className="flex absolute right-5 lg:w-5 lg:h-5 w-4 h-4 mt-5 cursor-pointer" onClick={onClose}>
             <Image
                 src={"/images/icons/close.svg"}
                 alt="Close icon"
@@ -31,41 +31,41 @@ export function SideBar({ openState, onClose }: SideBarType) {
         </div>
 
         <div className="flex w-full mt-28 ml-5">
-                <ul>
-                    <li className="flex mb-5 w-7 h-7 lg:w-8 lg:h-8">
-                        <Link href="/" className="flex">
-                            <Image
-                                src={"/images/icons/home.svg"}
-                                alt="Close icon"
-                                width={45}
-                                height={45}
-                            />
-                            <p className="text-white lg:text-2xl text-xl flex items-end ml-3">{t('SideBar.home')}</p>
-                        </Link>
-                    </li>
-                    <li className="flex mb-5 w-7 h-7 lg:w-8 lg:h-8">
-                        <Link href="/" className="flex">
-                            <Image
-                                src={"/images/icons/profile.svg"}
-                                alt="Close icon"
-                                width={45}
-                                height={45}
-                            />
-                            <p className="text-white lg:text-2xl text-xl flex items-end ml-3">{t('SideBar.perfil')}</p>
-                        </Link>
-                    </li>
-                    <li className="flex mb-5 w-7 h-7 lg:w-8 lg:h-8">
-                        <Link href="/" className="flex">
-                            <Image
-                                src={"/images/icons/ticket.svg"}
-                                alt="Close icon"
-                                width={45}
-                                height={45}
-                            />
-                            <p className="text-white lg:text-2xl text-xl flex items-end ml-3">{t('SideBar.cupons')}</p>
-                        </Link>
-                    </li>
-                </ul>
+            <ul>
+                <li className="flex mb-5 w-7 h-7">
+                    <Link href="/" className="flex">
+                        <Image
+                            src={"/images/icons/home.svg"}
+                            alt="Close icon"
+                            width={45}
+                            height={45}
+                        />
+                        <p className="text-white text-xl flex items-end ml-3">{t('SideBar.home')}</p>
+                    </Link>
+                </li>
+                <li className="flex mb-5 w-7 h-7">
+                    <Link href="/" className="flex">
+                        <Image
+                            src={"/images/icons/profile.svg"}
+                            alt="Close icon"
+                            width={45}
+                            height={45}
+                        />
+                        <p className="text-white text-xl flex items-end ml-3">{t('SideBar.perfil')}</p>
+                    </Link>
+                </li>
+                <li className="flex mb-5 w-7 h-7">
+                    <Link href="/" className="flex">
+                        <Image
+                            src={"/images/icons/ticket.svg"}
+                            alt="Close icon"
+                            width={45}
+                            height={45}
+                        />
+                        <p className="text-white text-xl flex items-end ml-3">{t('SideBar.cupons')}</p>
+                    </Link>
+                </li>
+            </ul>
         </div>
         <div className="absolute bottom-4 left-5">
             <Link href="/" className="flex">
@@ -77,7 +77,7 @@ export function SideBar({ openState, onClose }: SideBarType) {
                     height={45}
                 />
             </div>
-                <p className="text-white lg:text-2xl text-xl flex items-end ml-3">{t('SideBar.perfil')}</p>
+                <p className="text-white text-xl flex items-end ml-3">{t('SideBar.perfil')}</p>
             </Link>
         </div>
 
