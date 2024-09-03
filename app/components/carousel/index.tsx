@@ -60,13 +60,13 @@ export default function CarouselDashboard(props: CarouselProps) {
       }, []);
 
     useEffect(() => {
-    setOffsetRadius(props.offset);
-    setShowArrows(props.showArrows);
+      setOffsetRadius(props.offset);
+      setShowArrows(props.showArrows);
     }, [props.offset, props.showArrows]);
 
     return (
         <>
-          <div className="" style={{ width: props.width, height: props.height, margin: props.margin }}>
+          <div style={{ width: props.width, height: props.height, margin: props.margin }}>
               <Carousel
                   slides={coffeeShopInfos}
                   goToSlide={goToSlide}
