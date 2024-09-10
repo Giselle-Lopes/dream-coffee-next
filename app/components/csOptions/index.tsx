@@ -1,57 +1,56 @@
 "use client";
 
-import { useState } from "react";
 import RatingStatic from "../rating";
 
 export default function CSOptions() {
     const coffeeShops = [
         {             
-            name: "cafe-1",
+            name: "The Mocha Mystery",
             image: "/images/assets/cafeterias/cafe-1.jpg",
             rating: 2.5 
         },
         {             
-            name: "cafe-2",
+            name: "Perky Penguin Espresso",
             image: "/images/assets/cafeterias/cafe-2.jpg",
             rating: 3 
         },
         {             
-            name: "cafe-3",
+            name: "Velvet Bean Café",
             image: "/images/assets/cafeterias/cafe-3.jpg",
             rating: 3.5 
         },
         {             
-            name: "cafe-4",
+            name: "Whisk & Brew",
             image: "/images/assets/cafeterias/cafe-4.jpg",
             rating: 1 
         },
         {             
-            name: "cafe-5",
+            name: "Steamy Stories Coffee House",
             image: "/images/assets/cafeterias/cafe-5.jpg",
             rating: 4.5 
         },
         {             
-            name: "cafe-6",
+            name: "Cup of Creavity",
             image: "/images/assets/cafeterias/cafe-6.jpg",
             rating: 5 
         },
         {             
-            name: "cafe-7",
+            name: "Brewed Awakening",
             image: "/images/assets/cafeterias/cafe-7.jpg",
             rating: 2.5 
         },
         {             
-            name: "cafe-8",
+            name: "Sip 'n Spin Latte Lounge",
             image: "/images/assets/cafeterias/cafe-8.jpg",
             rating: 1.5 
         },
         {             
-            name: "cafe-9",
+            name: "Fantasia French Press",
             image: "/images/assets/cafeterias/cafe-9.jpg",
             rating: 3 
         },
         { 
-            name: "cafe-10",
+            name: "Dream Bean Café",
             image: "/images/assets/cafeterias/cafe-10.jpg",
             rating: 4.5 
         }
