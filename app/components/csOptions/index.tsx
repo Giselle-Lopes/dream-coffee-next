@@ -59,12 +59,12 @@ export default function CSOptions() {
     return (
         <div>
             {coffeeShops.map((item, index) => (
-                <div className="text-black" key={index}>
+                <div key={index}>
                     <div className="flex flex-col items-center">
                         <div className="bg-primary-darkPink bg-opacity-50 cursor-pointer mb-10">
                             <img src={item.image} alt={item.name + " image"} className="object-cover h-48 w-[900px] lg:hover:w-[1000px] lg:hover:h-52 object-center lg:opacity-0 lg:hover:opacity-70 opacity-70 transition-all duration-300" />
                         </div>
-                        <p className="absolute lg:left-[20%] left-[10%] mt-5 text-white">{item.name}</p>
+                        <p className="absolute lg:left-[20%] left-[10%] mt-5 font-semibold">{item.name}</p>
                         <span className="absolute lg:right-[20%] right-[10%] mt-36">
                             <RatingStatic rating={item.rating}/>
                         </span>

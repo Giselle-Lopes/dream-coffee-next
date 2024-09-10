@@ -66,13 +66,13 @@ export default function CarouselDashboard(props: CarouselProps) {
 
     return (
         <>
-          <div style={{ width: props.width, height: props.height, margin: props.margin }}>
+          <div style={{ width: props.width, height: props.height, margin: props.margin, cursor: "pointer" }}>
               <Carousel
-                  slides={coffeeShopInfos}
-                  goToSlide={goToSlide}
-                  offsetRadius={offsetRadius}
-                  showNavigation={showArrows}
-                  animationConfig={config.gentle}
+                slides={coffeeShopInfos}
+                goToSlide={goToSlide}
+                offsetRadius={offsetRadius}
+                showNavigation={showArrows}
+                animationConfig={config.gentle}
               />
           </div>
         </>
