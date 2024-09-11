@@ -12,12 +12,12 @@ export default function Home() {
   return (
     <div className="bg-white h-screen overflow-hidden animate-slide bg-auto">
         <motion.div className="w-screen h-screen absolute overflow-hidden z-[99]" ref={constraintsRef}>
-          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[330px] lg:top-[80px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
-          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[100px] lg:top-[250px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
-          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[300px] lg:bottom-[50px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
-          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[350px] lg:top-[150px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
-          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[100px] lg:top-[120px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
-          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[350px] lg:bottom-[30px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[330px] right-[250px] top-[50px] lg:top-[80px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[100px] right-0 top-[250px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[300px] right-0 bottom-[50px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[350px] left-[20px] top-[400px] lg:top-[150px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[100px] left-[250px] lg:top-[120px] top-[20px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[350px] left-[80px] bottom-[30px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
         </motion.div>
       <div className="absolute right-0 -top-1">
         <Image

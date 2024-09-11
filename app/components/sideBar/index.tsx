@@ -77,7 +77,7 @@ export function SideBar({ openState, onClose }: SideBarType) {
                     height={45}
                 />
             </div>
-                <p className="text-white text-xl flex items-end ml-3">{t('SideBar.perfil')}</p>
+                <p className="text-white text-xl flex items-end ml-3">{t('SideBar.logOut')}</p>
             </Link>
         </div>
 
