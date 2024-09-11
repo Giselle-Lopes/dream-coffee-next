@@ -1,9 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import * as React from "react";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  const constraintsRef = useRef(null);
+
   return (
-    <div className="bg-white h-screen overflow-hidden bg-[url('/images/assets/coffee-bg.svg')] bg-auto">
+    <div className="bg-white h-screen overflow-hidden animate-slide bg-auto">
+        <motion.div className="w-screen h-screen absolute overflow-hidden z-[99]" ref={constraintsRef}>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[330px] lg:top-[80px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[100px] lg:top-[250px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:right-[300px] lg:bottom-[50px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[350px] lg:top-[150px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[100px] lg:top-[120px] bg-no-repeat bg-[url('/images/icons/coffee-bean-lf.png')]" drag dragConstraints={constraintsRef}/>
+          <motion.div className="cursor-pointer w-[100px] h-[100px] bg-transparent absolute lg:left-[350px] lg:bottom-[30px] bg-no-repeat bg-[url('/images/icons/coffee-bean-rg.png')]" drag dragConstraints={constraintsRef}/>
+        </motion.div>
       <div className="absolute right-0 -top-1">
         <Image
           src="/images/assets/cloud.png"
@@ -21,7 +36,7 @@ export default function Home() {
         />
       </div>
       <div className="flex flex-col justify-center items-center h-full gap-10">
-        <div className="flex">
+        <div className="flex z-[100] pointer-events-none">
           <Image
             src="/images/assets/logo-round.svg"
             alt="Cloud image"
@@ -29,7 +44,7 @@ export default function Home() {
             width={200}
           />
         </div>
-        <div className="flex flex-col gap-6 w-64 justify-center">
+        <div className="flex flex-col gap-6 w-64 justify-center z-[100]">
           <input type="email" className="text-[#8D8F8A] text-lg bg-[#EBEBE9] outiline-[#8D8F8A] outline-2 outline p-2 rounded-md"/>
           <input type="password" className="text-[#8D8F8A] text-lg bg-[#EBEBE9] outiline-[#8D8F8A] outline-2 outline p-2 rounded-md"/>
           <Link href="/dashboard" className="text-white font-jua">
