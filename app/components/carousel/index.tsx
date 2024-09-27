@@ -35,7 +35,7 @@ export default function CarouselDashboard(props: CarouselProps) {
               key: index,
               content: 
                 <div>
-                  <div className="shadow-2xl">
+                  <div className="shadow-2xl lg:w-[400px] lg:h-[400px] w-[280px] h-[280px]">
                     <Image
                       src={element.image}
                       alt={element.name + " image"}
