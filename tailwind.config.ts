@@ -18,6 +18,10 @@ const config: Config = {
           darkPink: "#C06C84",
           darkPurple: "#6C5B7B",
           darkBlue: "#355C7D",
+        },
+        secondary: {
+          brown: '#9E6F5F',
+          lightBege: '#F9B093',
         }
       },
       backgroundImage: {

@@ -55,7 +55,9 @@ export default function Home() {
               <p className="text-primary-hotPint text-xs text-center font-jua">Esqueceu a senha?</p>
             </button>
             <button>
-              <p className="text-primary-hotPint text-xs text-center font-jua">Criar conta</p>
+              <Link href={"/create-account"}>
+                <p className="text-primary-hotPint text-xs text-center font-jua">Criar conta</p>
+              </Link>
             </button>
           </div>
         </div>
