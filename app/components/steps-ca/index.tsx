@@ -1,47 +1,78 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 type StepName = {
-  stepType: "createAccount" | "form" | "bioInfo" | "finish"
+  stepType: "createAccount" | "form" | "bioInfo" | "finish",
+  type?: "customer" | "owner"
 }
 
-export default function StepsCA({ stepType }: StepName) {
+export default function StepsCA({ stepType, type }: StepName) {
 
   const [changeArrow, setChangeArrow] = useState(false);
+
+  const steps = {
+    createAccount: {
+      step: "createAccount",
+      routeBack: "/",
+      routeFurther: ""
+    },
+    form: {
+      step: "form",
+      routeBack: "/create-account",
+      routeFurther: "/bio-info"
+    },
+    bioInfo: {
+      step: "bioInfo",
+      routeBack: `${type === "customer" ? "form-account-customer" : "form-account-owner"}`,
+      routeFurther: "finish-ca"
+    },
+    finishCa: {
+      step: "finish",
+      routeBack: "bio-info",
+      routeFurther: ""
+    }
+  }
+
+  let step = Object.values(steps).find((stp) => stepType === stp.step);
  
   return(
-    <div className="flex flex-row justify-center pt-8 gap-48">
-      <div onMouseOver={() => setChangeArrow(true)} onMouseLeave={() => setChangeArrow(false)}>
-        <Image
-          alt="Arrow left"
-          src={`${changeArrow ? '/images/icons/arrow-left-pink.svg' : '/images/icons/arrow-left-blue.svg'}`}
-          height={40}
-          width={40}
-          className={"hover:cursor-pointer"}
-        />
-      </div>
-      <div className={`font-jua cursor-default ${stepType === "createAccount" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl"}`}>
-        1
-      </div>
-      <div className={`font-jua cursor-default ${stepType === "form" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl"}`}>
-        2
-      </div>
-      <div className={`font-jua cursor-default ${stepType === "bioInfo" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl"}`}>
-        3
-      </div>
-      <div className={`font-jua cursor-default ${stepType === "finish" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl"}`}>
-        4
-      </div>
-      <div onMouseOver={() => setChangeArrow(true)} onMouseLeave={() => setChangeArrow(false)}>
-        <Image
-          alt="Arrow right"
-          src={`${changeArrow ? '/images/icons/arrow-right-pink.svg' : '/images/icons/arrow-right-blue.svg'}`}
-          height={40}
-          width={40}
-          className={"hover:cursor-pointer"}
-        />
-      </div>
+    <div className="flex flex-row justify-center py-8 lg:gap-48 gap-20">
+      {step && (
+        <>
+          <Link href={`${step.routeBack}`}>
+            <div onMouseOver={() => setChangeArrow(true)} onMouseLeave={() => setChangeArrow(false)}>
+              <Image
+                alt="Arrow left"
+                src={`${changeArrow ? '/images/icons/arrow-left-pink.svg' : '/images/icons/arrow-left-blue.svg'}`}
+                height={40}
+                width={40}
+                className={"hover:cursor-pointer"}
+              />
+            </div>
+          </Link>
+        </>
+      )}
+      <div className={`font-jua cursor-default ${stepType === "createAccount" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl hidden lg:flex"}`}>1</div>
+      <div className={`font-jua cursor-default ${stepType === "form" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl hidden lg:flex"}`}>2</div>
+      <div className={`font-jua cursor-default ${stepType === "bioInfo" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl hidden lg:flex"}`}>3</div>
+      <div className={`font-jua cursor-default ${stepType === "finish" ? "text-primary-hotPint text-4xl" : "text-primary-darkBlue text-2xl hidden lg:flex"}`}>4</div>
+      {step && (
+        <>
+          <Link href={`${step.routeFurther}`}>
+            <div onMouseOver={() => setChangeArrow(true)} onMouseLeave={() => setChangeArrow(false)} className={`${stepType === "createAccount" || stepType === "finish" ? "opacity-0" : "opacity-100"}`}>
+              <Image
+                alt="Arrow right"
+                src={`${changeArrow ? '/images/icons/arrow-right-pink.svg' : '/images/icons/arrow-right-blue.svg'}`}
+                height={40}
+                width={40}
+                className={`${stepType === "createAccount" || stepType === "finish" ? "hover:cursor-default" : "hover:cusros-pointer"}`}
+              />
+            </div>
+          </Link>
+        </>
+      )}
     </div>
   )
 }
