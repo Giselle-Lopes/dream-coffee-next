@@ -3,11 +3,47 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { auth } from "./services/auth0.service";
+import { Auth0Error } from "auth0-js";
+import { GET } from "./api/auth/[auth0]/route";
+
+interface LoginForm {
+  email: string;
+  password: string;
+}
 
 export default function Home() {
   const constraintsRef = useRef(null);
+
+  const [user, setUser] = useState<LoginForm>({ email: "", password: "" });
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log(user);
+    auth.login({
+      username: user.email,
+      password: user.password,
+      realm: process.env.NEXT_PUBLIC_AUTH0_REALM,
+      redirectUri: process.env.NEXT_PUBLIC_AUTH0_LOGIN_REDIRECT_URI,
+      responseType: process.env.NEXT_PUBLIC_AUTH0_LOGIN_RESPONSE_TYPE,
+    }, function(error: Auth0Error | null, result: any){
+      if(error){
+        console.log("Login failed")
+        console.log(error)
+        return;
+      }
+
+      console.log("Login successful")
+      console.log(result)
+    })
+  };
 
   return (
     <div className="bg-white h-screen overflow-hidden animate-slide bg-auto">
@@ -45,11 +81,25 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col gap-6 w-64 justify-center z-[100]">
-          <input type="email" className="text-[#8D8F8A] text-lg bg-[#EBEBE9] outiline-[#8D8F8A] outline-2 outline p-2 rounded-md"/>
-          <input type="password" className="text-[#8D8F8A] text-lg bg-[#EBEBE9] outiline-[#8D8F8A] outline-2 outline p-2 rounded-md"/>
-          <Link href="/dashboard" className="text-white font-jua">
-            <button className="bg-primary-darkPink p-2 rounded-md hover:bg-primary-hotPint w-64">Login</button>
-          </Link>
+          <form action={"submit"} className="flex flex-col gap-6">
+            <input 
+              type="email"
+              placeholder="username"
+              name="email"
+              value={user.email}
+              onChange={onChangeHandler}
+              className="text-[#8D8F8A] text-lg bg-[#EBEBE9] outiline-[#8D8F8A] outline-2 outline p-2 rounded-md"
+            />
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={user.password}
+              onChange={onChangeHandler}
+              className="text-[#8D8F8A] text-lg bg-[#EBEBE9] outiline-[#8D8F8A] outline-2 outline p-2 rounded-md"
+            />
+            <button type="button" onClick={onSubmit} className="bg-primary-darkPink p-2 rounded-md hover:bg-primary-hotPint w-64">Login</button>
+          </form>
           <div className="flex flex-col gap-2">
             <button>
               <p className="text-primary-hotPint text-xs text-center font-jua">Esqueceu a senha?</p>

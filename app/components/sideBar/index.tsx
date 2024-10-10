@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { auth } from "../../../app/services/auth0.service";
+import { Auth0Error } from "auth0-js";
 
 type SideBarType = {
     openState: any;
@@ -9,6 +11,13 @@ type SideBarType = {
 
 export function SideBar({ openState, onClose }: SideBarType) {
     const { t } = useTranslation('main');
+
+    const onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        auth.logout({
+            returnTo: process.env.NEXT_PUBLIC_AUTH0_LOGOUT_URI,
+            clientID: process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID
+        })
+    }
 
     return(
         <div className={`flex font-jua text-black fixed top-0 left-0 h-screen w-64 bg-[#E78C96] transition-all duration-300 ease-in-out z-50 ${openState ? 'translate-x-0 bg-opacity-45' : '-translate-x-full opacity-0'}`}>
@@ -36,7 +45,7 @@ export function SideBar({ openState, onClose }: SideBarType) {
                     <Link href="/" className="flex">
                         <Image
                             src={"/images/icons/home.svg"}
-                            alt="Close icon"
+                            alt="Home icon"
                             width={45}
                             height={45}
                         />
@@ -47,7 +56,7 @@ export function SideBar({ openState, onClose }: SideBarType) {
                     <Link href="/" className="flex">
                         <Image
                             src={"/images/icons/profile.svg"}
-                            alt="Close icon"
+                            alt="Profile icon"
                             width={45}
                             height={45}
                         />
@@ -58,7 +67,7 @@ export function SideBar({ openState, onClose }: SideBarType) {
                     <Link href="/" className="flex">
                         <Image
                             src={"/images/icons/ticket.svg"}
-                            alt="Close icon"
+                            alt="Ticket icon"
                             width={45}
                             height={45}
                         />
@@ -68,17 +77,15 @@ export function SideBar({ openState, onClose }: SideBarType) {
             </ul>
         </div>
         <div className="absolute bottom-4 left-5">
-            <Link href="/" className="flex">
-            <div className="w-7 h-7">
+            <button onClick={onClick} className="w-7 h-7">
                 <Image
                     src={"/images/icons/logOut.svg"}
-                    alt="Close icon"
+                    alt="Logout icon"
                     width={45}
                     height={45}
                 />
-            </div>
-                <p className="text-white text-xl flex items-end ml-3">{t('SideBar.logOut')}</p>
-            </Link>
+            </button>
+            <p className="text-white text-xl flex items-end ml-3">{t('SideBar.logOut')}</p>
         </div>
 
         </div>
