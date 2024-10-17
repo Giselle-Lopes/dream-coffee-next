@@ -7,7 +7,6 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { auth } from "./services/auth0.service";
 import { Auth0Error } from "auth0-js";
-import { GET } from "./api/auth/[auth0]/route";
 
 interface LoginForm {
   email: string;

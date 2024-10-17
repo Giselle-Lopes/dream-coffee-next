@@ -1,9 +1,9 @@
 import CarouselDashboard from "../components/carousel";
 import CSOptions from "../components/csOptions";
 import Header from "../components/header";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
-export default async function MainClient() {
-
+export default withPageAuthRequired(async function MainClient() {
   return (
     <div className="bg-white">
       <div className="sticky top-0 z-10">
@@ -15,4 +15,4 @@ export default async function MainClient() {
       </div>
     </div>
   );
-}
+}, { returnTo: "/dashboard" })

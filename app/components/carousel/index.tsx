@@ -4,6 +4,7 @@ import Carousel from "react-spring-3d-carousel";
 import { useState, useEffect } from "react";
 import { config } from "react-spring";
 import Image from "next/image";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 interface CarouselProps {
   offset: number;
@@ -24,6 +25,9 @@ export default function CarouselDashboard(props: CarouselProps) {
     const [offsetRadius, setOffsetRadius] = useState<number>(2);
     const [showArrows, setShowArrows] = useState<boolean>(false);
     const [goToSlide, setGoToSlide] = useState<number | undefined>(undefined);
+    const { user } = useUser();
+
+    const roles = user && user['http://localhost:3000/roles'];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -65,16 +69,26 @@ export default function CarouselDashboard(props: CarouselProps) {
     }, [props.offset, props.showArrows]);
 
     return (
-        <>
-          <div style={{ width: props.width, height: props.height, margin: props.margin, cursor: "pointer" }}>
-              <Carousel
-                slides={coffeeShopInfos}
-                goToSlide={goToSlide}
-                offsetRadius={offsetRadius}
-                showNavigation={showArrows}
-                animationConfig={config.gentle}
-              />
-          </div>
-        </>
+      <>
+        <div style={{ width: props.width, height: props.height, margin: props.margin, cursor: "pointer" }}>
+            <Carousel
+              slides={coffeeShopInfos}
+              goToSlide={goToSlide}
+              offsetRadius={offsetRadius}
+              showNavigation={showArrows}
+              animationConfig={config.gentle}
+            />
+        </div>
+        <div className="text-black">Olá, {user?.name}!</div>
+        <div className="text-black">suas informações:</div>
+        <table>
+          <tr className="text-black">{user?.email}</tr>
+          <tr className="text-black">{user?.nickname}</tr>
+          <tr className="text-black">{user?.picture}</tr>
+          <tr className="text-black">
+            {roles?.includes("customer") ? <h1 className="text-black">é um customer</h1> : <h1>não</h1>}
+          </tr>
+        </table>
+      </>
     )
 }
