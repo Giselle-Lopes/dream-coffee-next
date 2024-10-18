@@ -83,7 +83,7 @@ export default function Home() {
           <form action={"submit"} className="flex flex-col gap-6">
             <input 
               type="email"
-              placeholder="username"
+              placeholder="email"
               name="email"
               value={user.email}
               onChange={onChangeHandler}
