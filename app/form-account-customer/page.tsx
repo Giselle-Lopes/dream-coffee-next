@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import StepsCA from "../components/steps-ca";
 import { auth } from "../services/auth0.service";
 import { Auth0Error } from "auth0-js";
+import { redirect } from 'next/navigation';
 
 interface RegisterForm {
   email: string;
@@ -14,22 +15,24 @@ interface RegisterForm {
   phone: number;
   address: string;
   additionalAddress: string;
+  roles: string[];
 }
 
 export default function FormCACustomer() {
-const [user, setUser] = useState<RegisterForm>({
-  email: "",
-  password: "",
-  passwordConfirmation: "",
-  fullName: "",
-  phone: 0,
-  address: "",
-  additionalAddress: ""
-});
-const [passwordError, setPasswordError] = useState('');
-const form = useForm<RegisterForm>();
-const { formState, register, handleSubmit } = form;
-const { errors } = formState;
+  const [user, setUser] = useState<RegisterForm>({
+    email: "",
+    password: "",
+    passwordConfirmation: "",
+    fullName: "",
+    phone: 0,
+    address: "",
+    additionalAddress: "",
+    roles: [] as string[]
+  });
+  const [passwordError, setPasswordError] = useState('');
+  const form = useForm<RegisterForm>();
+  const { formState, register, handleSubmit } = form;
+  const { errors } = formState;
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser({
@@ -65,6 +68,8 @@ const { errors } = formState;
         console.log("Registration failed");
         console.log(error);
         return;
+      } else {
+        window.location.replace("http://localhost:3000/finish-ca");
       }
 
       console.log("User registration successfull");
@@ -79,7 +84,7 @@ const { errors } = formState;
   return (
     <div className="bg-white h-screen">
       <StepsCA stepType={"form"}/>
-      <div className="flex flex-col justify-center items-center lg:mt-10 mt-5 gap-5">
+      <div className="flex flex-col justify-center items-center 2xl:mt-44 lg:mt-10 mt-5 gap-5">
         <div className="flex lg:flex-row flex-col gap-10 w-[350px] lg:w-[850px]">
           <div className="flex flex-col">
             <label htmlFor="Nome completo" className="font-jua text-purple-600">Nome completo</label>
@@ -174,7 +179,7 @@ const { errors } = formState;
               type="password"
               {...register("password", {
                 required: {
-                  message: "Senha é obrigatório",
+                  message: "Senha é obrigatória",
                   value: true
                 }
               })}
@@ -192,7 +197,7 @@ const { errors } = formState;
               type="password"
               {...register("passwordConfirmation", {
                 required: {
-                  message: "Confirmação de senha é obrigatório",
+                  message: "Confirmação de senha é obrigatória",
                   value: true
                 }
               })}
@@ -206,8 +211,8 @@ const { errors } = formState;
           </div>
         </div>
       </div>
-      <div className="lg:mt-5 mt-10 lg:mx-[213px] mx-[30px]">
-        <button type="button" onClick={handleSubmit(() => onSubmit)} className="bg-purple-600 p-2 rounded-md hover:bg-primary-hotPint w-64">Cadastrar</button>
+      <div className="lg:mt-5 mt-4 2xl:mx-[535px] lg:mx-[213px] mx-[30px]">
+        <button type="button" onClick={onSubmit} className="bg-purple-600 p-2 rounded-md hover:bg-primary-hotPint w-64">Cadastrar</button>
       </div>
     </div>
   )

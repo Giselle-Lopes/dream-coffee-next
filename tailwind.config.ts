@@ -32,7 +32,8 @@ const config: Config = {
       animation: {
         background: 'background 2s ease-in-out infinite',
         linear: 'backgroundLinear 3s linear infinite',
-        slide: 'backgroundSlide 120s linear infinite alternate-reverse forwards;',
+        slide: 'backgroundSlide 120s linear infinite alternate-reverse forwards',
+        fall: 'fall 5s linear forwards'
       },
       keyframes: {
         background: {
@@ -47,6 +48,9 @@ const config: Config = {
           '0%': { backgroundPosition: '0 0%' },
           '100%': { backgroundPosition: '100% 50%' },
         },
+        fall: {
+          '100%': { transform: 'translateY(100vh)' },
+        }
       },
     },
   },

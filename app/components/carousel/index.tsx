@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { config } from "react-spring";
 import Image from "next/image";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { auth } from "@/app/services/auth0.service";
 
 interface CarouselProps {
   offset: number;
@@ -27,7 +28,17 @@ export default function CarouselDashboard(props: CarouselProps) {
     const [goToSlide, setGoToSlide] = useState<number | undefined>(undefined);
     const { user } = useUser();
 
-    const roles = user && user['http://localhost:3000/roles'];
+    auth.parseHash({ hash: window.location.hash }, function(err, authResult) {
+      if (err) {
+        return console.log(err);
+      }
+      auth.client.userInfo(authResult?.accessToken!, function(err, user) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("foiiiiiiiiiiiiiiiiiiiiii")
+      })
+    })
 
     useEffect(() => {
         const fetchData = async () => {
@@ -85,9 +96,6 @@ export default function CarouselDashboard(props: CarouselProps) {
           <tr className="text-black">{user?.email}</tr>
           <tr className="text-black">{user?.nickname}</tr>
           <tr className="text-black">{user?.picture}</tr>
-          <tr className="text-black">
-            {roles?.includes("customer") ? <h1 className="text-black">é um customer</h1> : <h1>não</h1>}
-          </tr>
         </table>
       </>
     )
