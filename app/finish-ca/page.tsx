@@ -34,7 +34,7 @@ export default function FinishCA() {
   return (
     <div className="bg-white h-screen overflow-x-hidden">
       <StepsCA stepType={"finish"}/>
-      <div className="flex justify-center items-center flex-col my-32 lg:my-0">
+      <div className="flex justify-center items-center flex-col my-32 lg:my-0 2xl:my-32">
         <div>
           <Image
             alt="Coffee cup gif"
@@ -50,8 +50,8 @@ export default function FinishCA() {
         </div>
         <div id="confetti-container"/>
       </div>
-      <div className="absolute left-0 bottom-0 rounded-e-full rounded-t-full border-primary-darkPink shadow-primary-darkPink shadow-2xl w-[300px] h-[300px]"></div>
-      <div className="absolute right-0 top-0 rounded-s-full rounded-b-full border-primary-darkPink shadow-primary-darkPink shadow-2xl w-[300px] h-[300px]"></div>
+      <div className="absolute hidden lg:flex xl:flex left-0 bottom-0 rounded-e-full rounded-t-full border-primary-darkPink shadow-primary-darkPink shadow-2xl w-[300px] h-[300px]"></div>
+      <div className="absolute hidden lg:flex xl:flex right-0 top-0 rounded-s-full rounded-b-full border-primary-darkPink shadow-primary-darkPink shadow-2xl w-[300px] h-[300px]"></div>
     </div>
   )
 }

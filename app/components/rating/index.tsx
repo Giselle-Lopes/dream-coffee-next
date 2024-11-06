@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function RatingStatic({ rating, maxRating = 5 }: { rating: number, maxRating?: number }) {
+export default function RatingStatic({ rating, maxRating = 5, color }: { rating: number, maxRating?: number, color:string }) {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
 
@@ -13,7 +13,7 @@ export default function RatingStatic({ rating, maxRating = 5 }: { rating: number
     return (
       <Image
         key={index}
-        src={fullStarImage ? "/images/icons/star-fill-white.svg" : halfStarImage ? "images/icons/star-half-white.svg" : "images/icons/star-white.svg"}
+        src={fullStarImage ? `/images/icons/star-fill-${color}.svg` : halfStarImage ? `images/icons/star-half-${color}.svg` : `images/icons/star-${color}.svg`}
         alt={index < rating ? "Filled star" : (index === fullStars && hasHalfStar) ? "Half star" : "Empty star"}
         width={20}
         height={20}

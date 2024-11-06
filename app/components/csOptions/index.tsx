@@ -69,7 +69,7 @@ export default function CSOptions() {
                         </div>
                         <p className={`${showOptions === index ? "opacity-0" : "opacity-100"} absolute lg:left-[20%] 2xl:left-[30%] left-[10%] mt-5 font-semibold`}>{item.name}</p>
                         <span className={`${showOptions === index ? "opacity-0" : "opacity-100"} absolute lg:right-[20%] 2xl:right-[30%] right-[10%] mt-36`}>
-                            <RatingStatic rating={item.rating}/>
+                            <RatingStatic rating={item.rating} color={"white"}/>
                         </span>
                         <div className={`${showOptions === index ? "flex" : "hidden"} flex-row items-center justify-center absolute lg:gap-48 gap-14 lg:mt-4 mt-8 transition-all duration-100 w-full`}>
                             <Link href={"/"} className="flex flex-row hover:text-primary-hotPint hover:underline transition-all duration-100">
