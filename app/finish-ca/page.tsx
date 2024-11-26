@@ -32,7 +32,7 @@ export default function FinishCA() {
   }, []);
 
   return (
-    <div className="bg-white h-screen overflow-x-hidden">
+    <div className="bg-white h-screen overflow-hidden">
       <StepsCA stepType={"finish"}/>
       <div className="flex justify-center items-center flex-col my-32 lg:my-0 2xl:my-32">
         <div>
